@@ -7,7 +7,7 @@ import {
   Grid,
   TextField,
   Stack,
-  Button
+  Button,
 } from '@mui/material';
 import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
@@ -29,6 +29,7 @@ function App() {
       <Stack spacing={2}>
         <Typography variant="h1">Audio Downloader</Typography>
         <TextField fullWidth label="Query" />
+        <Button onClick={() => ytdlQuery.refetch()}>Fetch</Button>
         {ytdlQuery.isLoading && <CircularProgress />}
         {ytdlQuery.data && <pre>{JSON.stringify(ytdlQuery.data, null, 2)}</pre>}
       </Stack>
